@@ -1,5 +1,4 @@
 import { useFormik } from "formik";
-import validationSchema from "../../../utils/schemaValidationPayment";
 
 import {
   applyMaskCreditCard,
@@ -10,6 +9,7 @@ import {
 import { ButtonFinish } from "./ButtonFinish";
 import { ButtonCancel } from "./ButtonCancel";
 import { FormInput } from "../../../components";
+import { validationSchema } from "../../../utils/schemaValidationPayment";
 
 export function CardForm() {
   const formik = useFormik({
