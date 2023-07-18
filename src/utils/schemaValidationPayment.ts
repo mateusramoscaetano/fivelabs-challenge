@@ -50,7 +50,7 @@ const validationSchemaTicket = () => {
     name: yup.string().required("Printed Name is required"),
     address: yup.string().required("Address is required"),
     address_number: yup.string().required("Address number is required"),
-    cpf_cnpj: yup
+    cpf: yup
       .string()
       .required("CPF or CNPJ is required")
       .test("valid-cpf-cnpj", "Invalid CPF or CNPJ", (value) => {
