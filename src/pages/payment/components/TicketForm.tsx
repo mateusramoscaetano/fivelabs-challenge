@@ -4,9 +4,10 @@ import storeVehicle from "../../../store/VehicleStore";
 import { ButtonCancel } from "./ButtonCancel";
 import { ButtonFinish } from "./ButtonFinish";
 import { FormInput } from "../../../components";
+import { toastSucess } from "../../../helpers";
 export function TicketForm() {
   function handleSubmit() {
-    console.log("submit");
+    toastSucess("Successully buy");
   }
 
   const data = toJS(store.user);
@@ -27,52 +28,42 @@ export function TicketForm() {
           type="text"
           id="name"
           name="name"
-          onChange={() => console.log("changed")}
           value={`${data[0].firstName} ${data[0].lastName}`}
           placeholder="Printed Name"
         />
 
         <FormInput
-          className="text-zinc-500 h-8 p-2 mb-2 rounded-md enabled:hover:border-gray-400"
           type="text"
           id="address"
           name="address"
-          onChange={() => console.log("changed")}
           value={data[0].address}
           placeholder="Address"
         />
 
-        <div className="flex flex-col w-60 text-sm">
-          <input
-            className="text-zinc-500 h-8 p-2 mb-2 rounded-md enabled:hover:border-gray-400"
-            type="text"
-            id="address_number"
-            name="address_number"
-            value={data[0].address_number}
-            placeholder="House Number"
-          />
-        </div>
+        <FormInput
+          type="text"
+          id="address_number"
+          name="address_number"
+          value={data[0].address_number}
+          placeholder="House Number"
+        />
 
-        <div className="flex flex-col w-60 text-sm">
-          <input
-            className="text-zinc-500 h-8 p-2 mb-2 rounded-md enabled:hover:border-gray-400"
-            type="text"
-            id="cpf"
-            name="cpf"
-            value={data[0].cpf_cnpj}
-            placeholder="CPF or CNPJ"
-          />
-        </div>
-        <div className="flex flex-col w-60 text-sm">
-          <input
-            className="text-zinc-500 h-8 p-2 mb-2 rounded-md enabled:hover:border-gray-400"
-            type="text"
-            id="price"
-            name="price"
-            value={`$ ${vehicle[0].price}`}
-            placeholder="CPF or CNPJ"
-          />
-        </div>
+        <FormInput
+          type="text"
+          id="cpf"
+          name="cpf"
+          value={data[0].cpf_cnpj}
+          placeholder="CPF or CNPJ"
+        />
+
+        <FormInput
+          type="text"
+          id="price"
+          name="price"
+          value={`$ ${vehicle[0].price}`}
+          placeholder="CPF or CNPJ"
+        />
+
         <ButtonFinish title="Generate Ticket" handleSubmit={handleSubmit} />
         <ButtonCancel />
       </form>

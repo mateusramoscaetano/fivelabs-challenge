@@ -5,7 +5,7 @@ interface FormInputProps extends HTMLAttributes<HTMLInputElement> {
   name: string;
   type: string;
   value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   error?: string | boolean;
 }

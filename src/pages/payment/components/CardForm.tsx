@@ -26,7 +26,7 @@ export function CardForm() {
   const handleSubmit = async () => {
     const errors = await formik.validateForm();
     if (Object.keys(errors).length === 0) {
-      toastSucess("deu boa");
+      toastSucess("Successully buy");
     } else {
       toastError(formik.errors.card_number || "Invalid card");
     }
