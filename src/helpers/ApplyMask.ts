@@ -14,6 +14,17 @@ export function applyMask({ value, isCpf }: Props) {
       .replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
   }
 }
+export function applyMaskCpfOrCnpj(value: string) {
+  if (value.length === 11) {
+    return value
+      .replace(/\D/g, "")
+      .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+  } else {
+    return value
+      .replace(/\D/g, "")
+      .replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
+  }
+}
 
 export function applyNumberMask(value: string, isNumber11: boolean) {
   if (isNumber11) {
