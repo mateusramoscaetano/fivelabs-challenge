@@ -1,14 +1,14 @@
 import { makeAutoObservable } from "mobx";
-import { MyComponentProps } from "../@types";
+import { ICardCheckout } from "../@types";
 
 class VehicleStore {
-  cart: MyComponentProps[] = [];
+  cart: ICardCheckout[] = [];
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  addToCart(vehicle: MyComponentProps) {
+  addToCart(vehicle: ICardCheckout) {
     this.cart.push(vehicle);
   }
 
