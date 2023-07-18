@@ -11,17 +11,19 @@ export default function MainRoutes() {
         <Route
           path="/"
           element={
-            <Header>
+            <>
+              <Header />
               <Home />
-            </Header>
+            </>
           }
         />
         <Route
           path="/checkout"
           element={
-            <Header>
+            <>
+              <Header />
               <CheckoutPage />
-            </Header>
+            </>
           }
         />
         <Route path="/payment" element={<FormPayment />} />

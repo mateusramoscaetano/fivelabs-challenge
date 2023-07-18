@@ -21,7 +21,10 @@ export function CheckoutPage() {
   }
   return (
     <>
-      <div className="bg-[url('/sky.jpg')] bg-cover flex justify-center items-center  w-full h-screen">
+      <div
+        className="bg-[url('/sky.jpg')] min-h-screen bg-cover flex flex-col lg:flex-row 
+        items-center gap-12 p-8 lg:justify-center"
+      >
         <CardCheckout name={name} model={model} price={price} image={image} />
 
         <FormUser />

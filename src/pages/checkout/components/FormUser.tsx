@@ -54,13 +54,14 @@ export function FormUser() {
 
   return (
     <form
-      className="flex flex-col justify-center items-center bg-slate-100 w-full md:w-1/2 lg:w-1/3 h-auto rounded-sm p-4"
+      className="flex flex-col justify-center items-center bg-slate-100 
+      w-full max-w-[31.25rem] rounded-sm p-4"
       onSubmit={formik.handleSubmit}
     >
       <h1 className="text-center font-extrabold text-zinc-900 text-lg mb-2">
         Checkout
       </h1>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 w-full">
         <FormInput
           id="firstName"
           name="firstName"
