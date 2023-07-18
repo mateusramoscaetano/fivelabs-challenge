@@ -45,4 +45,19 @@ const validationSchema = yup.object({
     ),
 });
 
-export default validationSchema;
+const validationSchemaTicket = () => {
+  return yup.object({
+    name: yup.string().required("Printed Name is required"),
+    address: yup.string().required("Address is required"),
+    address_number: yup.string().required("Address number is required"),
+    cpf_cnpj: yup
+      .string()
+      .required("CPF or CNPJ is required")
+      .test("valid-cpf-cnpj", "Invalid CPF or CNPJ", (value) => {
+        const strippedValue = value.replace(/\D/g, "");
+        return strippedValue.length === 11 || strippedValue.length === 14;
+      }),
+  });
+};
+
+export { validationSchema, validationSchemaTicket };
