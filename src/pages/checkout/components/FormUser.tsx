@@ -4,7 +4,7 @@ import { useState } from "react";
 import store from "../../../store/UserStore";
 import validationSchema from "../../../utils/schemaValidation";
 import { ButtonNext } from "./ButtonNext";
-import { FormInput } from "./FormInput";
+
 import {
   applyMask,
   applyNumberMask,
@@ -12,6 +12,7 @@ import {
   isCpfOrCnpj,
   isNumber11,
 } from "../../../helpers";
+import { FormInput } from "../../../components";
 
 export function FormUser() {
   const [isCpf, setIsCpf] = useState(true);
