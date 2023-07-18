@@ -24,9 +24,13 @@ export function FormPayment() {
     return <></>;
   }
   return (
-    <div className="flex items-center justify-center w-screen h-screen bg-[url('/sky.jpg')] bg-cover">
-      <div className="flex flex-col justify-center items-center bg-slate-100 w-1/5 h-3/5 rounded-lg pl-24 pr-24">
-        <nav className="flex text-slate-800 font-extrabold text-xl mt-8 w-full justify-between ">
+    <div className="flex items-center justify-center w-full min-h-screen bg-[url('/sky.jpg')] bg-cover">
+      <div
+        className="flex flex-col  bg-slate-100  
+      rounded-lg py-8 lg:max-w-[25rem] lg:w-full lg:p-20 
+      xl:max-w-[31.25rem] xl:w-full xl:p-20"
+      >
+        <nav className="flex text-slate-800 font-extrabold text-xl mt-8 w-full justify-between px-4">
           <h3
             className={`cursor-pointer ${
               view === "Credit" ? "text-blue-500 underline" : ""

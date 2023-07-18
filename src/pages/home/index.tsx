@@ -6,7 +6,7 @@ import { CardStarship } from "../../components";
 import { toastError } from "../../helpers";
 
 export function Home() {
-  const [starships, setStarships] = useState<Vehicle[]>([] as Vehicle[]);
+  const [starships, setStarships] = useState([] as Vehicle[]);
 
   async function getAllVehicles() {
     try {
@@ -25,9 +25,13 @@ export function Home() {
 
   return (
     <>
-      <div className="bg-[url('/sky.jpg')] bg-cover bg-repeat w-full min-h-screen">
+      <div
+        className="bg-[url('/sky.jpg')] bg-cover bg-repeat 
+      w-full min-h-screen"
+      >
         <main
-          className="px-6 md:px-8 lg:px-14 w-screen min-h-screen grid grid-cols-1 
+          className="px-6 md:px-8 lg:px-14 w-screen 
+          min-h-screen grid grid-cols-1 
           md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10 
           justify-items-center pt-10"
         >

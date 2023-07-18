@@ -11,7 +11,7 @@ export function ButtonCancel() {
       <button
         type="button"
         onClick={handleSubmit}
-        className=" mt-2 flex w-60 h-12 items-center text-center justify-center cursor-pointer bg-red-400 hover:bg-opacity-90 text-white rounded-lg"
+        className=" mt-2 flex w-full max-w-[15rem] h-12 items-center text-center justify-center cursor-pointer bg-red-400 hover:bg-opacity-90 text-white rounded-lg"
       >
         Cancel
       </button>

@@ -38,7 +38,8 @@ export function TicketForm() {
   return (
     <>
       <form
-        className="flex flex-col justify-center items-center bg-slate-100  rounded-sm"
+        className="flex flex-col justify-center items-center 
+        bg-slate-100 rounded-sm w-full max-w-[300px] px-4"
         onSubmit={handleSubmit}
       >
         <h1 className="text-center font-bold w-80 text-zinc-900 text-xl mb-2">

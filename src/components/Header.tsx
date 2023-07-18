@@ -18,7 +18,7 @@ export function Header() {
         src={logo}
         alt="logomarca"
         onClick={handleGoToHome}
-        className="cursor-pointer w-32"
+        className="cursor-pointer w-32 2xl:w-48"
       />
       <div className="flex flex-row gap-4 lg:gap-8">
         <IoPersonOutline className="cursor-pointer" color="black" size={20} />
