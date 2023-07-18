@@ -4,14 +4,35 @@ import storeVehicle from "../../../store/VehicleStore";
 import { ButtonCancel } from "./ButtonCancel";
 import { ButtonFinish } from "./ButtonFinish";
 import { FormInput } from "../../../components";
-import { toastSucess } from "../../../helpers";
-export function TicketForm() {
-  function handleSubmit() {
-    toastSucess("Successully buy");
-  }
+import { applyMaskCpfOrCnpj, toastError, toastSucess } from "../../../helpers";
+import { useFormik } from "formik";
+import { validationSchemaTicket } from "../../../utils/schemaValidationPayment";
 
+export function TicketForm() {
   const data = toJS(store.user);
   const vehicle = toJS(storeVehicle.cart);
+
+  const formik = useFormik({
+    initialValues: {
+      address: data[0].address,
+      address_number: data[0].address_number,
+      cpf: data[0].cpf_cnpj,
+      name: `${data[0].firstName} ${data[0].lastName}`,
+      price: vehicle[0].price,
+    },
+    validationSchema: validationSchemaTicket,
+    onSubmit: () => {},
+  });
+
+  const handleSubmit = async () => {
+    const errors = await formik.validateForm();
+    console.log(errors);
+    if (Object.keys(errors).length === 0) {
+      toastSucess("Successully buy");
+    } else {
+      toastError(formik.errors.cpf || "All fields are required ");
+    }
+  };
 
   return (
     <>
@@ -24,11 +45,11 @@ export function TicketForm() {
         </h1>
 
         <FormInput
-          className="text-zinc-500 h-8 p-2 mb-2 rounded-md enabled:hover:border-gray-400"
           type="text"
           id="name"
           name="name"
-          value={`${data[0].firstName} ${data[0].lastName}`}
+          onChange={formik.handleChange}
+          value={formik.values.name}
           placeholder="Printed Name"
         />
 
@@ -36,7 +57,8 @@ export function TicketForm() {
           type="text"
           id="address"
           name="address"
-          value={data[0].address}
+          onChange={formik.handleChange}
+          value={formik.values.address}
           placeholder="Address"
         />
 
@@ -44,7 +66,8 @@ export function TicketForm() {
           type="text"
           id="address_number"
           name="address_number"
-          value={data[0].address_number}
+          onChange={formik.handleChange}
+          value={formik.values.address_number}
           placeholder="House Number"
         />
 
@@ -52,7 +75,8 @@ export function TicketForm() {
           type="text"
           id="cpf"
           name="cpf"
-          value={data[0].cpf_cnpj}
+          onChange={formik.handleChange}
+          value={applyMaskCpfOrCnpj(formik.values.cpf)}
           placeholder="CPF or CNPJ"
         />
 
@@ -60,7 +84,8 @@ export function TicketForm() {
           type="text"
           id="price"
           name="price"
-          value={`$ ${vehicle[0].price}`}
+          onChange={() => formik.values.price}
+          value={`$ ${formik.values.price}`}
           placeholder="CPF or CNPJ"
         />
 
