@@ -1,8 +1,8 @@
-import { MyComponentProps } from "../@types";
+import { ICardCheckout } from "../@types";
 import { useNavigate } from "react-router-dom";
 import storeVehicle from "../store/VehicleStore";
 
-export function ButtonCheckout(vehicle: MyComponentProps) {
+export function ButtonCheckout(vehicle: ICardCheckout) {
   const navigate = useNavigate();
 
   const handleClick = async () => {
