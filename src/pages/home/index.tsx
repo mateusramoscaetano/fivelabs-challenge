@@ -4,7 +4,7 @@ import api from "../../data/services/api";
 import { Vehicle } from "../../@types";
 import { CardStarship, Header } from "../../components";
 
-export function Main() {
+export function Home() {
   const [starships, setStarships] = useState<Vehicle[]>([]);
 
   async function getAllVehicles() {
