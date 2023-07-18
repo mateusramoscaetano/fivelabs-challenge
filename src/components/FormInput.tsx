@@ -14,7 +14,7 @@ export function FormInput(props: FormInputProps) {
   const { error } = props;
 
   return (
-    <div className="flex flex-col w-60 text-sm mt-2">
+    <div className="flex flex-col w-full text-sm mt-2">
       <input
         className={`${
           error ? "border-red-500" : "border-gray-300"
