@@ -26,7 +26,6 @@ export function TicketForm() {
 
   const handleSubmit = async () => {
     const errors = await formik.validateForm();
-    console.log(errors);
     if (Object.keys(errors).length === 0) {
       toastSucess("Successully buy");
     } else {
