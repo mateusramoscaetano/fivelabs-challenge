@@ -2,33 +2,27 @@ import { CardCheckout } from "./components/CardCheckout";
 import { FormUser } from "./components/FormUser";
 import store from "../../store/VehicleStore";
 import { toJS } from "mobx";
-import { Header } from "../../components/Header";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 export function CheckoutPage() {
   const data = toJS(store.cart);
+  const { name, price, model, image } = data[0];
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (data.length === 0) {
+    if (!data.length) {
       navigate("/");
     }
   }, []);
 
   if (!data.length) {
-    return <></>;
+    return null;
   }
   return (
     <>
-      <Header />
-      <div className="bg-[url('/sky.jpg')] bg-cover flex  w-screen h-screen items-center justify-center ">
-        <CardCheckout
-          name={data[0].name}
-          model={data[0].model}
-          price={data[0].price}
-          image={data[0].image}
-        />
+      <div className="bg-[url('/sky.jpg')] bg-cover flex justify-center items-center  w-full h-screen">
+        <CardCheckout name={name} model={model} price={price} image={image} />
 
         <FormUser />
       </div>

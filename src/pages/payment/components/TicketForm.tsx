@@ -11,14 +11,16 @@ import { validationSchemaTicket } from "../../../utils/schemaValidationPayment";
 export function TicketForm() {
   const data = toJS(store.user);
   const vehicle = toJS(storeVehicle.cart);
+  const { address, address_number, cpf_cnpj, firstName, lastName } = data[0];
+  const { price } = vehicle[0];
 
   const formik = useFormik({
     initialValues: {
-      address: data[0].address,
-      address_number: data[0].address_number,
-      cpf: data[0].cpf_cnpj,
-      name: `${data[0].firstName} ${data[0].lastName}`,
-      price: vehicle[0].price,
+      address: address,
+      address_number: address_number,
+      cpf: cpf_cnpj,
+      name: `${firstName} ${lastName}`,
+      price: price,
     },
     validationSchema: validationSchemaTicket,
     onSubmit: () => {},
